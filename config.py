@@ -30,7 +30,7 @@ def get_default_download_path():
         str: Expanded path to the default download directory
     """
     config = load_config()
-    default_path = config.get('default_download_path', '~/Movies/')
+    default_path = config.get('download_path', '~/Movies/')
 
     # Expand ~ to home directory
     expanded_path = os.path.expanduser(default_path)
@@ -54,7 +54,7 @@ def set_download_path(path):
     config = load_config()
 
     # Update the download path
-    config['default_download_path'] = path
+    config['download_path'] = path
 
     # Write back to file
     with open(config_path, 'w') as file:
