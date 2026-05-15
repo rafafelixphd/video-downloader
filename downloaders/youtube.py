@@ -1,3 +1,4 @@
+import os
 import yt_dlp
 from downloaders.base import BaseDownloader
 
@@ -45,17 +46,25 @@ class YouTubeLinkedInDownloader(BaseDownloader):
 
         try:
             # Configure yt-dlp options with the output filepath
-            # Remove the .mp4 extension as yt-dlp will add it
-            output_path = filepath.rsplit('.', 1)[0] if filepath.endswith('.mp4') else filepath
-
+            # Use the full path and let yt-dlp enforce the extension
             ydl_opts = self.ydl_opts.copy()
-            ydl_opts['outtmpl'] = output_path
+            ydl_opts['outtmpl'] = filepath
 
             # Download the video using yt-dlp
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 info = ydl.extract_info(url, download=True)
                 if not info:
                     raise RuntimeError("Failed to extract video information")
+
+            # Handle case where yt-dlp saves without extension
+            # Check if file exists with the expected filepath
+            if not os.path.exists(filepath):
+                # Try to find the file without extension
+                base_path = filepath.rsplit('.', 1)[0] if filepath.endswith('.mp4') else filepath
+                if os.path.exists(base_path):
+                    os.rename(base_path, filepath)
+                else:
+                    raise RuntimeError(f"Downloaded file not found at {filepath} or {base_path}")
 
         except yt_dlp.utils.DownloadError as e:
             raise RuntimeError(f"Download failed: {str(e)}")
