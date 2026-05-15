@@ -64,6 +64,11 @@ class TestCreateMetadata:
         with pytest.raises(ValueError, match="URL cannot be empty"):
             create_metadata(None)
 
+    def test_create_metadata_whitespace_only_url(self):
+        """Test that create_metadata rejects whitespace-only URLs"""
+        with pytest.raises(ValueError):
+            create_metadata("   ")
+
     def test_create_metadata_returns_dict(self):
         """Test that create_metadata returns a dictionary"""
         url = "https://www.instagram.com/reel/ABC123/"

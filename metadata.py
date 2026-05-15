@@ -1,5 +1,4 @@
 import yaml
-import os
 from pathlib import Path
 from datetime import date
 from typing import Dict, List, Optional
@@ -24,7 +23,7 @@ def create_metadata(
     Raises:
         ValueError: If url is empty or None
     """
-    if not url:
+    if not url or not url.strip():
         raise ValueError("URL cannot be empty")
 
     metadata = {
@@ -65,7 +64,7 @@ def save_metadata(
     if not filename:
         raise ValueError("Filename cannot be empty")
 
-    if not url:
+    if not url or not url.strip():
         raise ValueError("URL cannot be empty")
 
     # Get the directory containing the video file
