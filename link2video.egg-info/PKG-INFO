@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: link2video
+Version: 0.1.0
+Summary: Multi-platform video downloader with GUI support for Instagram, YouTube, and LinkedIn
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# TODO

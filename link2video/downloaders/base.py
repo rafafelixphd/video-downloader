@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from datetime import date
 from typing import Tuple, Optional, List
-from metadata import save_metadata
+from ..metadata import save_metadata
 
 
 class BaseDownloader(ABC):

@@ -2,7 +2,7 @@ import instaloader
 import os
 import shutil
 import tempfile
-from downloaders.base import BaseDownloader
+from .base import BaseDownloader
 
 
 class InstagramDownloader(BaseDownloader):

@@ -14,15 +14,10 @@ Features:
 """
 
 import os
-import sys
-from pathlib import Path
 from gooey import Gooey, GooeyParser
 
-# Add parent directory to path to import modules
-sys.path.insert(0, str(Path(__file__).parent))
-
-from platform_detector import detect_platform
-from config import get_default_download_path
+from .platform_detector import detect_platform
+from .config import get_default_download_path
 
 
 @Gooey(

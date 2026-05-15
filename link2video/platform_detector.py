@@ -5,9 +5,9 @@ This module provides functionality to detect which platform a URL belongs to
 and returns the appropriate downloader instance for that platform.
 """
 
-from downloaders.instagram import InstagramDownloader
-from downloaders.youtube import YouTubeLinkedInDownloader
-from downloaders.base import BaseDownloader
+from .downloaders.instagram import InstagramDownloader
+from .downloaders.youtube import YouTubeLinkedInDownloader
+from .downloaders.base import BaseDownloader
 
 
 def detect_platform(url: str) -> BaseDownloader:

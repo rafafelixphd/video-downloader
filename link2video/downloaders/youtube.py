@@ -1,6 +1,6 @@
 import os
 import yt_dlp
-from downloaders.base import BaseDownloader
+from .base import BaseDownloader
 
 
 class YouTubeLinkedInDownloader(BaseDownloader):
