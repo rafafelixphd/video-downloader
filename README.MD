@@ -1,65 +1,64 @@
-# Instagram Reel Downloader
+# link2video
 
-![Screenshot 1](images/post/1.png) 
-![Screenshot 2](images/post/2.png)
-![Screenshot 3 ](images/post/3.png) 
-![Screenshot 4](images/post/4.png)
-
-Instagram Reel Downloader is a Python application that allows you to download Instagram Reels using their URLs. The application provides a graphical user interface (GUI) built with Tkinter and uses the Instaloader library to handle the downloading process.
+A multi-platform video downloader with GUI support for Instagram, YouTube, and LinkedIn.
 
 ## Features
 
-- Download Instagram Reels by entering their URLs.
-- Simple and user-friendly GUI built with Tkinter.
-- Supports downloading multiple Reels at once.
-
-## Requirements
-
-- Python 3.x
-- Tkinter
-- Instaloader
+- **Multi-Platform Support**: Download videos from Instagram, YouTube, and LinkedIn
+- **Auto-Platform Detection**: Automatically detects the video platform from URL
+- **Hash-Based Naming**: Videos are saved with format `YYYYMMDD_12hash.mp4` for automatic organization
+- **Metadata Creation**: Automatically generates YAML metadata files alongside videos with tags and comments
+- **Graphical Interface**: User-friendly Gooey GUI for easy interaction
 
 ## Installation
 
-1. Clone this repository to your local machine:
+Install the package in development mode:
 
-    ```bash
-    git clone https://github.com/AdityaManojShinde/Instagram-Reels-Downloader.git
-    ```
-
-2. Navigate to the project directory:
-
-    ```bash
-    cd instagram-reel-downloader
-    ```
-
-3. Install the required dependencies:
-
-    ```bash
-    pip install instaloader
-    ```
+```bash
+pip install -e .
+```
 
 ## Usage
 
-1. Run the application:
+Launch the GUI from the command line:
 
-    ```bash
-    python main.py
-    ```
+```bash
+link2video
+```
 
-2. In the application window, enter the Instagram Reel URL that you want to download and also select the desired location you want to save the downloaded video by pressing browse.
+This will open the graphical interface where you can:
 
-3. Click the "Download" button to start the download process.
+1. Enter a video URL (Instagram, YouTube, or LinkedIn)
+2. Select the directory to save the video
+3. Add optional tags for categorization
+4. Add optional comments or notes
+5. Click download
 
-4. Wait for the download to finish. Once the download is complete, a success message will be displayed.
+## Supported Platforms
 
-## Contributing
+- **Instagram**: Reels, Posts, Videos
+- **YouTube**: Videos, Shorts
+- **LinkedIn**: Posts
 
-If you find any bugs or issues with this tool, please feel free to open an issue in the GitHub repository. Pull requests are also welcome if you want to contribute to the code.
+## Metadata Files
+
+For each downloaded video, a `metadata.yaml` file is automatically created in a `metadata/` subdirectory containing:
+
+- Original URL
+- Download date
+- Tags
+- Comments/Notes
+
+## Requirements
+
+All dependencies are listed in `requirements.txt`:
+
+- `instaloader` - Instagram downloader
+- `yt-dlp` - YouTube/LinkedIn downloader
+- `Gooey` - GUI framework
+- `PyYAML` - Metadata handling
+- `colored` - Colored terminal output
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
-
-## Author
-Aditya Shinde
+This project is licensed under the Apache License 2.0 - see the LICENSE file for details.
