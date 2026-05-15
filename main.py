@@ -29,7 +29,11 @@ from config import get_default_download_path
     program_name="Multi-Platform Video Downloader",
     default_size=(700, 600),
     richtext_controls=True,
-    navigation='TABBED'
+    navigation='TABBED',
+    body_bg_color='#2b2b2b',
+    footer_bg_color='#2b2b2b',
+    sidebar_bg_color='#1e1e1e',
+    richtext_bg_color='#1e1e1e'
 )
 def main():
     """
