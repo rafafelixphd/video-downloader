@@ -1,5 +1,0 @@
-instaloader
-Gooey
-yt-dlp
-PyYAML
-pytest
